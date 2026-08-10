@@ -1,0 +1,25 @@
+title: lab.rtin.page
+description: Hosted services, checked from inside the lab.
+healthTimeoutMs: 2500
+refreshSeconds: 60
+services:
+  - id: immich
+    title: Immich
+    description: Photos, albums, and shared family library.
+    url: https://photos.lab.rtin.page
+    icon: immich
+    healthUrl: http://immich-server:2283/server/ping
+
+  - id: paperless
+    title: Paperless
+    description: Searchable documents and household paperwork.
+    url: https://paperless.lab.rtin.page
+    icon: paperless-ngx
+    healthUrl: http://paperless-webserver:8000
+
+  - id: dockge
+    title: Dockge
+    description: Compose stacks and service operations.
+    url: https://dockge.lab.rtin.page
+    icon: dockge
+    healthUrl: http://dockge:5001

@@ -22,7 +22,7 @@ export function ThemeToggle() {
 
   return (
     <div
-      className="grid grid-cols-3 rounded-lg border border-white/10 bg-white/10 p-1 dark:border-white/10 dark:bg-white/10"
+      className="grid grid-cols-3 rounded-lg border border-black/10 bg-neutral-100 p-1 dark:border-white/15 dark:bg-neutral-900"
       aria-label="Theme"
     >
       {options.map((option) => {
@@ -35,8 +35,9 @@ export function ThemeToggle() {
             type="button"
             onClick={() => setTheme(option.value)}
             className={cn(
-              "flex size-8 items-center justify-center rounded-md text-white/60 outline-none transition-colors hover:bg-white/10 hover:text-white focus-visible:ring-3 focus-visible:ring-lime-300/40 active:translate-y-px",
-              active && "bg-lime-300 text-neutral-950 hover:bg-lime-300 hover:text-neutral-950"
+              "flex size-8 items-center justify-center rounded-md text-neutral-500 outline-none transition-colors hover:bg-white hover:text-neutral-950 focus-visible:ring-3 focus-visible:ring-neutral-500/30 active:translate-y-px dark:text-neutral-400 dark:hover:bg-black dark:hover:text-white",
+              active &&
+                "bg-white text-neutral-950 shadow-sm hover:bg-white hover:text-neutral-950 dark:bg-black dark:text-white dark:hover:bg-black dark:hover:text-white"
             )}
             aria-label={`Use ${option.label} theme`}
             aria-pressed={active}

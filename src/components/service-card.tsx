@@ -17,19 +17,19 @@ import { cn } from "@/lib/utils";
 
 const statusStyles = {
   online:
-    "border-emerald-700/15 bg-emerald-50 text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300",
+    "border-black/10 bg-neutral-100 text-neutral-900 dark:border-white/15 dark:bg-neutral-900 dark:text-neutral-100",
   degraded:
-    "border-amber-700/15 bg-amber-50 text-amber-800 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-300",
+    "border-black/10 bg-neutral-100 text-neutral-900 dark:border-white/15 dark:bg-neutral-900 dark:text-neutral-100",
   offline:
-    "border-rose-700/15 bg-rose-50 text-rose-800 dark:border-rose-400/20 dark:bg-rose-400/10 dark:text-rose-300",
+    "border-black/10 bg-neutral-100 text-neutral-900 dark:border-white/15 dark:bg-neutral-900 dark:text-neutral-100",
   unknown:
-    "border-neutral-300 bg-neutral-100 text-neutral-600 dark:border-white/10 dark:bg-white/10 dark:text-neutral-300",
+    "border-black/10 bg-neutral-100 text-neutral-600 dark:border-white/15 dark:bg-neutral-900 dark:text-neutral-300",
 } satisfies Record<ServiceHealth["state"], string>;
 
 const dotStyles = {
-  online: "bg-emerald-500",
-  degraded: "bg-amber-500",
-  offline: "bg-rose-500",
+  online: "bg-neutral-950 dark:bg-white",
+  degraded: "bg-neutral-500",
+  offline: "bg-neutral-500",
   unknown: "bg-neutral-400",
 } satisfies Record<ServiceHealth["state"], string>;
 
@@ -49,9 +49,9 @@ export function ServiceCard({
       target="_blank"
       rel="noreferrer"
       aria-label={`Open ${service.title}`}
-      className="block rounded-lg outline-none transition-transform focus-visible:ring-3 focus-visible:ring-lime-500/40 active:translate-y-px"
+      className="block rounded-lg outline-none transition-transform focus-visible:ring-3 focus-visible:ring-neutral-500/30 active:translate-y-px"
     >
-      <Card className="min-h-[172px] rounded-lg border border-black/10 bg-white/90 shadow-[0_16px_50px_rgba(20,20,16,0.07)] transition-all hover:-translate-y-0.5 hover:border-lime-700/30 hover:shadow-[0_18px_60px_rgba(20,20,16,0.12)] dark:border-white/10 dark:bg-neutral-900/90 dark:shadow-none dark:hover:border-lime-300/30">
+      <Card className="min-h-[172px] rounded-lg border border-black/10 bg-white shadow-none transition-all hover:-translate-y-0.5 hover:border-black/25 dark:border-white/15 dark:bg-black dark:hover:border-white/35">
         <CardHeader className="grid-cols-[1fr_auto] gap-3">
           <div className="flex min-w-0 items-start gap-3">
             <ServiceIcon src={icon} title={service.title} />

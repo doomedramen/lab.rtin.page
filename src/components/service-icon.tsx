@@ -15,7 +15,11 @@ export function ServiceIcon({
 
   return (
     <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-black/10 bg-neutral-50">
-      <span className="font-mono text-sm font-semibold text-neutral-600">
+      <span
+        className={`font-mono text-sm font-semibold text-neutral-600 transition-opacity ${
+          loaded && !failed ? "opacity-0" : "opacity-100"
+        }`}
+      >
         {initials}
       </span>
       {src && !failed ? (

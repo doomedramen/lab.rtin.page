@@ -2,6 +2,7 @@ import { Cloud, RefreshCw, ShieldCheck, Terminal } from "lucide-react";
 
 import { AutoRefresh } from "@/components/auto-refresh";
 import { ServiceCard } from "@/components/service-card";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Badge } from "@/components/ui/badge";
 import { checkAllServices, summarizeHealth } from "@/lib/health";
 import { loadManifest, serviceKey } from "@/lib/services";
@@ -18,7 +19,7 @@ export default async function Home() {
   });
 
   return (
-    <main className="min-h-dvh bg-[#f6f7ef] text-neutral-950">
+    <main className="min-h-dvh bg-[#f6f7ef] text-neutral-950 dark:bg-[#0d0f0c] dark:text-neutral-50">
       <AutoRefresh seconds={result.manifest.refreshSeconds} />
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-5 sm:px-6 lg:px-8">
         <header className="flex flex-col gap-5 rounded-lg border border-black/10 bg-[#10120f] px-5 py-5 text-white shadow-[0_18px_80px_rgba(16,18,15,0.18)] sm:px-6">
@@ -34,10 +35,13 @@ export default async function Home() {
                 </h1>
               </div>
             </div>
-            <Badge className="hidden h-8 rounded-md bg-white/10 px-3 text-white sm:inline-flex">
-              <ShieldCheck className="size-3.5" />
-              Access
-            </Badge>
+            <div className="flex items-center gap-2">
+              <Badge className="hidden h-8 rounded-md bg-white/10 px-3 text-white sm:inline-flex">
+                <ShieldCheck className="size-3.5" />
+                Access
+              </Badge>
+              <ThemeToggle />
+            </div>
           </div>
 
           <div className="grid gap-4 border-t border-white/10 pt-5 md:grid-cols-[1.4fr_1fr] md:items-end">
@@ -66,7 +70,7 @@ export default async function Home() {
           <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
             <div>
               <h2 className="text-lg font-semibold tracking-normal">Services</h2>
-              <p className="max-w-full truncate text-sm text-neutral-600">
+              <p className="max-w-full truncate text-sm text-neutral-600 dark:text-neutral-400">
                 Checked at {checkedAt}
                 <span className="hidden sm:inline">
                   {" "}
@@ -77,7 +81,7 @@ export default async function Home() {
             </div>
             <Badge
               variant="outline"
-              className="h-8 w-fit rounded-md border-black/10 bg-white px-3 text-neutral-700"
+              className="h-8 w-fit rounded-md border-black/10 bg-white px-3 text-neutral-700 dark:border-white/10 dark:bg-neutral-900 dark:text-neutral-300"
             >
               <RefreshCw className="size-3.5" />
               refreshes every {result.manifest.refreshSeconds}s
@@ -95,10 +99,10 @@ export default async function Home() {
               ))}
             </div>
           ) : (
-            <div className="rounded-lg border border-dashed border-black/20 bg-white/70 p-8 text-center">
-              <Cloud className="mx-auto size-8 text-neutral-400" />
+            <div className="rounded-lg border border-dashed border-black/20 bg-white/70 p-8 text-center dark:border-white/20 dark:bg-white/5">
+              <Cloud className="mx-auto size-8 text-neutral-400 dark:text-neutral-500" />
               <h2 className="mt-4 text-lg font-semibold">No services yet</h2>
-              <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-neutral-600">
+              <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-neutral-600 dark:text-neutral-400">
                 Mount a config file at <code>/config/services.yaml</code> to
                 publish service cards.
               </p>

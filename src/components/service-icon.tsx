@@ -14,9 +14,9 @@ export function ServiceIcon({
   const initials = title.slice(0, 2).toUpperCase();
 
   return (
-    <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-black/10 bg-neutral-50">
+    <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-black/10 bg-neutral-50 dark:border-white/10 dark:bg-neutral-800">
       <span
-        className={`font-mono text-sm font-semibold text-neutral-600 transition-opacity ${
+        className={`font-mono text-sm font-semibold text-neutral-600 transition-opacity dark:text-neutral-300 ${
           loaded && !failed ? "opacity-0" : "opacity-100"
         }`}
       >

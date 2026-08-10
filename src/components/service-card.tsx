@@ -16,10 +16,14 @@ import { iconUrl } from "@/lib/services";
 import { cn } from "@/lib/utils";
 
 const statusStyles = {
-  online: "border-emerald-700/15 bg-emerald-50 text-emerald-800",
-  degraded: "border-amber-700/15 bg-amber-50 text-amber-800",
-  offline: "border-rose-700/15 bg-rose-50 text-rose-800",
-  unknown: "border-neutral-300 bg-neutral-100 text-neutral-600",
+  online:
+    "border-emerald-700/15 bg-emerald-50 text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300",
+  degraded:
+    "border-amber-700/15 bg-amber-50 text-amber-800 dark:border-amber-400/20 dark:bg-amber-400/10 dark:text-amber-300",
+  offline:
+    "border-rose-700/15 bg-rose-50 text-rose-800 dark:border-rose-400/20 dark:bg-rose-400/10 dark:text-rose-300",
+  unknown:
+    "border-neutral-300 bg-neutral-100 text-neutral-600 dark:border-white/10 dark:bg-white/10 dark:text-neutral-300",
 } satisfies Record<ServiceHealth["state"], string>;
 
 const dotStyles = {
@@ -47,7 +51,7 @@ export function ServiceCard({
       aria-label={`Open ${service.title}`}
       className="block rounded-lg outline-none transition-transform focus-visible:ring-3 focus-visible:ring-lime-500/40 active:translate-y-px"
     >
-      <Card className="min-h-[172px] rounded-lg border border-black/10 bg-white/90 shadow-[0_16px_50px_rgba(20,20,16,0.07)] transition-all hover:-translate-y-0.5 hover:border-lime-700/30 hover:shadow-[0_18px_60px_rgba(20,20,16,0.12)]">
+      <Card className="min-h-[172px] rounded-lg border border-black/10 bg-white/90 shadow-[0_16px_50px_rgba(20,20,16,0.07)] transition-all hover:-translate-y-0.5 hover:border-lime-700/30 hover:shadow-[0_18px_60px_rgba(20,20,16,0.12)] dark:border-white/10 dark:bg-neutral-900/90 dark:shadow-none dark:hover:border-lime-300/30">
         <CardHeader className="grid-cols-[1fr_auto] gap-3">
           <div className="flex min-w-0 items-start gap-3">
             <ServiceIcon src={icon} title={service.title} />
@@ -61,7 +65,7 @@ export function ServiceCard({
             </div>
           </div>
           <CardAction>
-            <ArrowUpRight className="size-4 text-neutral-400 transition-colors group-hover/card:text-neutral-950" />
+            <ArrowUpRight className="size-4 text-neutral-400 transition-colors group-hover/card:text-neutral-950 dark:text-neutral-500 dark:group-hover/card:text-neutral-100" />
           </CardAction>
         </CardHeader>
         <CardContent className="mt-auto flex items-center justify-between gap-3">
@@ -75,7 +79,7 @@ export function ServiceCard({
             <span className={cn("size-1.5 rounded-full", dotStyles[state])} />
             {state}
           </Badge>
-          <span className="flex min-w-0 items-center gap-1.5 truncate text-xs text-neutral-500">
+          <span className="flex min-w-0 items-center gap-1.5 truncate text-xs text-neutral-500 dark:text-neutral-400">
             {state === "unknown" ? (
               <CircleAlert className="size-3.5 shrink-0" />
             ) : (
